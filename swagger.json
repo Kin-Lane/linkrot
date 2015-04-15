@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Blog",
-    "description": "This is an blog for all my blog entries. I use a single blog system to manage all my sites. Based upon tagging, I then publish each post out to its respective Github Page based repo.",
+    "title": "Linkrot",
+    "description": "I built this system to help me address linkrot across all of my sites. It allows me to record external and internal sites I link to, and monitor their availability, while taking screenshots to preserve a minimal integrity.",
     "termsOfService": "http://stack.network/terms-of-service.html",
     "version": "v2"
   },
-  "host": "blog.api.kinlane.com",
+  "host": "linkrot.api.kinlane.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -15,733 +15,273 @@
     "application/json"
   ],
   "paths": {
-    "/blog/": {
+    "/linkrot/": {
       "get": {
-        "summary": "all blogs",
-        "description": "all blogs",
-        "operationId": "getBlogs",
+        "summary": "get links",
+        "description": "get links",
+        "operationId": "getLinks",
         "parameters": [
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the blog",
+            "description": "your appid for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the blog",
+            "description": "your appkey for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
-            "name": "query",
+            "name": "host",
             "in": "query",
-            "description": "a text query to search across blog",
+            "description": "the host to apply linkrot to",
             "required": false,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "blog response",
+            "description": "linkrot response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/blog"
+                "$ref": "#/definitions/link"
               }
             }
           }
         },
         "tags": [
-          "Blog"
+          "Linkrot"
         ]
       },
       "post": {
-        "summary": "add a blog post",
-        "description": "add a blog post",
-        "operationId": "addBlog",
+        "summary": "add linkrot",
+        "description": "add linkrot",
+        "operationId": "addLinkrot",
         "parameters": [
           {
             "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
+            "in": "formData",
+            "description": "your appid for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
+            "in": "formData",
+            "description": "your appkey for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
-            "name": "post_date",
-            "in": "query",
-            "description": "date the blog was posted",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "ttle for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "author",
-            "in": "query",
-            "description": "author of the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "summary",
-            "in": "query",
-            "description": "summary for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
+            "in": "body",
             "name": "body",
-            "in": "query",
-            "description": "full text for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "footer",
-            "in": "query",
-            "description": "curated id the blog originated from",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "description": "status of the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "curated_id",
-            "in": "query",
-            "description": "full text for the blog",
-            "required": true,
-            "type": "integer",
-            "format": "id"
+            "description": "a list of links from the DOM in the page (need more detail)",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "blog response",
+            "description": "add links response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/blog"
+                "$ref": "#/definitions/link"
               }
             }
           }
         },
         "tags": [
-          "Blog"
+          "Linkrot"
         ]
       }
     },
-    "/blog/published/": {
+    "/linkrot/checkstatus/": {
       "get": {
-        "summary": "published blogs",
-        "description": "published blogs",
-        "operationId": "getPublishedBlogs",
+        "summary": "get links",
+        "description": "get links",
+        "operationId": "getLinks",
         "parameters": [
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the blog",
+            "description": "your appid for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Blog Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Blog"
-        ]
-      }
-    },
-    "/blog/draft/": {
-      "get": {
-        "summary": "draft blogs",
-        "description": "draft blogs",
-        "operationId": "getDraftBlogs",
-        "parameters": [
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
+            "description": "your appkey for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
-            "name": "appkey",
+            "name": "host",
             "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "blog response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Blog"
-        ]
-      }
-    },
-    "/blog/{blog_id}/": {
-      "get": {
-        "summary": "Retrieve a blog using its slug",
-        "description": "Returns the blog detail",
-        "operationId": "getBlog",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "the unique id for blog entry",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "blog response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Blog"
-        ]
-      },
-      "put": {
-        "summary": "update blog",
-        "description": "update blog",
-        "operationId": "updateBlog",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "the unique id for blog entry",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "post_date",
-            "in": "query",
-            "description": "date the blog was posted",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "ttle for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "author",
-            "in": "query",
-            "description": "author of the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "summary",
-            "in": "query",
-            "description": "summary for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "query",
-            "description": "full text for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "footer",
-            "in": "query",
-            "description": "curated id the blog originated from",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "status",
-            "in": "query",
-            "description": "status of the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "curated_id",
-            "in": "query",
-            "description": "full text for the blog",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "blog response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Blog"
-        ]
-      },
-      "delete": {
-        "summary": "delete blog",
-        "description": "delete blog",
-        "operationId": "deleteBlog",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "the unique id for blog entry",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "blog response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Blog"
-        ]
-      }
-    },
-    "/blog/{blog_id}/tags/": {
-      "get": {
-        "summary": "blog tags",
-        "description": "blog tags",
-        "operationId": "getblogTags",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "id for blog",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Blog Tags Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/tag"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
-        ]
-      },
-      "post": {
-        "summary": "add tag to blog",
-        "description": "add tag to blog",
-        "operationId": "addBlogTag",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "id for the blog",
-            "required": true,
-            "type": "integer",
-            "format": "id"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "tag",
-            "in": "query",
-            "description": "tag name",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Blog Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/tag"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
-        ]
-      }
-    },
-    "/blog/{blog_id}/tags/{tag}": {
-      "delete": {
-        "summary": "delete blog tag",
-        "description": "delete blog tag",
-        "operationId": "deleteblogTag",
-        "parameters": [
-          {
-            "name": "blog_id",
-            "in": "path",
-            "description": "id for the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "tag",
-            "in": "path",
-            "description": "tag to remove from blog",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Blog Tag Response",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/tag"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
-        ]
-      }
-    },
-    "/blog/tags/byweek/": {
-      "get": {
-        "summary": "blog tags by week",
-        "description": "blog tags by week",
-        "operationId": "getBlogTagsByWeek",
-        "parameters": [
-          {
-            "name": "appid",
-            "in": "query",
-            "description": "your appid for accessing the blog",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "query",
-            "description": "your appkey for accessing the blog",
-            "required": true,
-            "type": "string"
-          },        
-          {
-            "name": "week",
-            "in": "query",
-            "description": "the week to retrieve tags by",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "the year to retrieve tags by",
+            "description": "the host to check status of",
             "required": false,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
-            "description": "Blog Tag Response",
+            "description": "linkrot check status response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/blog"
+                "$ref": "#/definitions/status"
               }
             }
           }
         },
         "tags": [
-          "Tags"
+          "Linkrot"
         ]
       }
     },
-    "/blog/tags/byweek/{tag}/blog/": {
+    "/linkrot/shortenurls/": {
       "get": {
-        "summary": "blog tags by week blogs",
-        "description":  "blog tags by week blogs",
-        "operationId": "getBlogTagCBlog",
-        "parameters": [
-          {
-            "name": "tag",
-            "in": "path",
-            "description": "the tag to filter by",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "week",
-            "in": "query",
-            "description": "the week to filter by, defaults to this week",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Blog Tag BLog Responsee",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/blog"
-              }
-            }
-          }
-        },
-        "tags": [
-          "Tags"
-        ]
-      }
-    },
-    "/blog/byweek/": {
-      "get": {
-        "summary": "blogs by week",
-        "description": "blogs by week",
-        "operationId": "getBlogsByWeek",
+        "summary": "get links",
+        "description": "get links",
+        "operationId": "getLinks",
         "parameters": [
           {
             "name": "appid",
             "in": "query",
-            "description": "your appid for accessing the blog",
+            "description": "your appid for accessing the linkrot",
             "required": true,
             "type": "string"
           },
           {
             "name": "appkey",
             "in": "query",
-            "description": "your appkey for accessing the blog",
+            "description": "your appkey for accessing the linkrot",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "host",
+            "in": "query",
+            "description": "the host to shorten urls for",
+            "required": false,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Blog Response",
+            "description": "linkrot shorten urls response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/blog"
+                "$ref": "#/definitions/shortlink"
               }
             }
           }
         },
         "tags": [
-          "Blog"
+          "Linkrot"
+        ]
+      }
+    },
+    "/linkrot/screencapture/": {
+      "get": {
+        "summary": "get links",
+        "description": "get links",
+        "operationId": "getLinks",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the linkrot",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the linkrot",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "host",
+            "in": "query",
+            "description": "the host to capture screenshots for",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "linkrot screenshot response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/screenshot"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Linkrot"
         ]
       }
     }
   },
   "definitions": {
-    "blog": {
+    "link": {
       "properties": {
-        "blog_id": {
-          "description": "unique id of the blog",
-          "type": "integer",
-          "format": "id"
-        },
-        "post_date": {
-          "description": "date the blog was posted",
+        "url": {
+          "description": "url being prcoessed",
           "type": "string"
         },
-        "title": {
-          "description": "ttle for the blog",
-          "type": "string"
-        },
-        "author": {
-          "description": "author of the blog",
-          "type": "string"
-        },
-        "summary": {
-          "description": "summary for the blog",
-          "type": "string"
-        },
-        "body": {
-          "description": "full body text of the blog",
-          "type": "string"
-        },
-        "footer": {
-          "description": "footer text for the blog",
+        "short_url": {
+          "description": "a shortened url version",
           "type": "string"
         },
         "status": {
-          "description": "status of the blog",
+          "description": "http status code for url",
           "type": "string"
-        },
-        "curated_id": {
-          "description": "curated id the blog originated from",
-          "type": "integer",
-          "format": "id"
         }
       }
     },
-    "tag": {
+    "shortlink": {
       "properties": {
-        "tag_id": {
-          "description": "id for the tag",
-          "type": "integer",
-          "format": "id"
-        },
-        "tag": {
-          "description": "text tag",
+        "url": {
+          "description": "url being prcoessed",
           "type": "string"
         },
-        "api_count": {
-          "description": "number of items api with tag",
-          "type": "integer"
+        "short_url": {
+          "description": "a shortened url version",
+          "type": "string"
+        }
+      }
+    },
+    "screenshot": {
+      "properties": {
+        "url": {
+          "description": "url being prcoessed",
+          "type": "string"
+        },
+        "screenshot": {
+          "description": "the screenshot of url",
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "properties": {
+        "status": {
+          "description": "status response",
+          "type": "string"
         }
       }
     }

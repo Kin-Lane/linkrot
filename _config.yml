@@ -1,5 +1,5 @@
-title:        Blog
-url:          http://kin-lane.github.io/blog/
+title:        Linkrot
+url:          http://kin-lane.github.io/linkrot/
 version:      1.1.1
 author:
   name:       'Kin Lane'
@@ -14,14 +14,14 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 50
 paginate_path: "/news/page:num"
 
-production_url : http://kin-lane.github.io/blog/
+production_url : http://kin-lane.github.io/linkrot/
 
-BASE_PATH : http://kin-lane.github.io/blog/
+BASE_PATH : http://kin-lane.github.io/linkrot/
 
 categories_path : /categories.html
 tags_path : /tags.html
 
 org: Kin-Lane
-repo: blog
-resource: Blog
+repo: linkrot
+resource: Linkrot
 oauthio: qUDL4eZqKPFb41SwuWIYIwLR6jI
