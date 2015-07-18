@@ -1,0 +1,173 @@
+{
+    "apiVersion": "1.0",
+    "swaggerVersion": "1.2",
+    "basePath": "http://api.apicommons.org/“,
+    "resourcePath": "/apis/“,
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "path": "/apis/“,
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Returns a list of all api definitions, allowing you to filter by query.",
+                    "notes": "Returns a list of all api definitions, allowing you to filter by query.",
+                    "nickname": "getAPIs",
+                    "type": "api",
+                    "parameters": [
+                        {
+                            "name": "query",
+                            "description": "a text query to search across apis",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "There are no apis"
+                        }
+                    ]
+                },
+		        {
+		          "method": "POST",
+		          "summary": "Adds new API definition to the commons.",
+		          "notes": "Adds new API definition to the commons.",
+		          "nickname": "addAPI",
+		          "type": "api",
+		          "parameters": [
+		            {
+		              "id": "appid",
+		              "name": "appid",
+		              "description": "application id for application making calls",
+		              "required": true,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "id": "appkey",
+		              "name": "appkey",
+		              "description": "application key for application making calls",
+		              "required": true,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "name",
+		              "description": "Name of API",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "description",
+		              "description": "Full text description of API",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "image",
+		              "description": "Image icon for API",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "license",
+		              "description": "Create commons license",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "attribution",
+		              "description": "Attribution. Either company or individual name",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "url",
+		              "description": "Public URL for your API",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "distribution_type",
+		              "description": "The type of API definition (ie. Swagger, API Blueprint, RAML)",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            },
+		            {
+		              "name": "distribution_url",
+		              "description": "The URL of your API definition.",
+		              "required": false,
+		              "allowMultiple": false,
+		              "dataType": "string",
+		              "paramType": "query"
+		            }
+		          ],
+		          "produces": [
+		            "application/json"
+		          ],
+		          "responseMessages": [
+		            {
+		              "code": 404,
+		              "message": "There are no apis"
+		            }
+		          ]
+		        }
+            ]
+        }
+    ],
+    "models": {
+        "businesses": {
+            "id": "api",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string"
+                },
+                "attribution": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "distribution_type": {
+                    "type": "string"
+                },
+                "distribution_url": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
