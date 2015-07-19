@@ -27,4 +27,7 @@ mysql_select_db($dbname);
 $API = "api.laneworks.net";
 $APISecret = "I like beer!";
 $APIKey = encrypt($API,$APISecret);
+
+$guser = "kinlane";
+$gpass = "kpawwjN4dnJy4j";
 ?>
