@@ -1,5 +1,4 @@
 <?php
-include "/var/www/html/system/common.php";
 
 //Primary Site URL
 $Site_URL = $_SERVER['HTTP_HOST'];
