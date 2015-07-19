@@ -72,24 +72,10 @@
         "operationId": "addLinkrot",
         "parameters": [
           {
-            "name": "appid",
-            "in": "formData",
-            "description": "your appid for accessing the linkrot",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "appkey",
-            "in": "formData",
-            "description": "your appkey for accessing the linkrot",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "description": "a list of links from the DOM in the page (need more detail)",
-            "required": false,
+            "required": true,
             "schema": {
               "$ref": "#/definitions/link"
             }

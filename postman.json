@@ -1,136 +1,34 @@
 {
-	"id": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-	"name": "Link",
-	"description": "This is an link for all my links. I use a single link system to manage all my sites.",
+	"id": "9433a5a2-a061-9d3f-f731-c85036611aca",
+	"name": "Linkrot",
+	"description": "I built this system to help me address linkrot across all of my sites. It allows me to record external and internal sites I link to, and monitor their availability, while taking screenshots to preserve a minimal integrity.",
 	"order": [],
 	"folders": [
 		{
-			"id": "6bae5984-da21-4a4c-8ee4-755a96cb3af1",
-			"name": "links",
-			"description": "Folder for links",
+			"id": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb",
+			"name": "linkrot",
+			"description": "Folder for linkrot",
 			"order": [
-				"9761ce9b-c769-4188-ac89-8b81377362d1",
-				"387fbfe7-f6ee-4c07-a9aa-aa931d9628f1",
-				"696d46d4-d272-4485-9a75-beae2f37492e",
-				"c2547109-b302-4a01-bbfb-65ccb83cc071",
-				"30f5bb98-f0b2-45e1-bfee-ea3c47c1a066",
-				"ccbc82e9-b39c-47fe-ab5f-1fb8c8df39dd",
-				"237f25d7-9753-42cc-a780-8c42a6e37d18",
-				"a80705c6-5324-427a-9d9a-96cfa2b44258"
+				"cdc27cba-ac87-2e52-82b3-27a81e251ccf",
+				"033d1a23-cdee-9774-047f-d23d0572bcd3",
+				"d6296f90-8acb-43eb-9729-3c4d20ac227f",
+				"958f66ef-bdd7-78b3-0324-52add533a4a8",
+				"ead7dfae-f15f-ee5b-8f81-31017be90199"
 			],
-			"collection_name": "Link",
-			"collection_id": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"collection": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"owner": "27278"
-		},
-		{
-			"id": "2a42cfb7-e817-4ad7-bb73-5df0ef9a30f1",
-			"name": "link",
-			"description": "Folder for link",
-			"order": [
-				"2b3dc004-099e-4bcc-b204-68e9a8310bf3",
-				"46e0f0b0-b878-4de9-bb81-63e90cc4e99a",
-				"3e725386-052a-4894-bf4c-e48bcbe7c39c"
-			],
-			"collection_name": "Link",
-			"collection_id": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"collection": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
+			"collection_name": "Linkrot",
+			"collection_id": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"collection": "20a54acc-edf5-4409-9a8b-6c02a4521895",
 			"owner": "27278"
 		}
 	],
 	"timestamp": 1413302258635,
 	"owner": "27278",
 	"hasRequests": true,
-	"synced": false,
 	"requests": [
 		{
-			"id": "237f25d7-9753-42cc-a780-8c42a6e37d18",
+			"id": "033d1a23-cdee-9774-047f-d23d0572bcd3",
 			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/tags/?appid={{appid}}&appkey={{appkey}}&tag={{tag}}&",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "add tag to link",
-			"descriptionFormat": "html",
-			"time": 1435482439390,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "add tag to link",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
-		},
-		{
-			"id": "2b3dc004-099e-4bcc-b204-68e9a8310bf3",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//link/{{link_id}}/screenshots/?appid={{appid}}&appkey={{appkey}}&",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "GET",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "retrieve link screenshots",
-			"descriptionFormat": "html",
-			"time": 1435482439389,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "retrieve link screenshots",
-			"owner": "27278",
-			"folder": "2a42cfb7-e817-4ad7-bb73-5df0ef9a30f1"
-		},
-		{
-			"id": "30f5bb98-f0b2-45e1-bfee-ea3c47c1a066",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/?appid={{appid}}&appkey={{appkey}}&",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "DELETE",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "delete link",
-			"descriptionFormat": "html",
-			"time": 1435482439390,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "delete link",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
-		},
-		{
-			"id": "387fbfe7-f6ee-4c07-a9aa-aa931d9628f1",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//links/",
+			"url": "http://linkrot.api.kinlane.com//linkrot/",
 			"pathVariables": {},
 			"preRequestScript": "",
 			"method": "POST",
@@ -152,129 +50,23 @@
 					"value": "{{appkey}}",
 					"type": "text",
 					"enabled": true
-				},
-				{
-					"key": "name",
-					"value": "{{name}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "{{description}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "url",
-					"value": "{{url}}",
-					"type": "text",
-					"enabled": true
 				}
 			],
 			"dataMode": "params",
-			"description": "add a link",
+			"description": "add linkrot",
 			"descriptionFormat": "html",
-			"time": 1435482439387,
+			"time": 1437335422892,
 			"version": 2,
 			"responses": [],
 			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "add a link",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
+			"collectionId": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"name": "add linkrot",
+			"folder": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb"
 		},
 		{
-			"id": "3e725386-052a-4894-bf4c-e48bcbe7c39c",
+			"id": "958f66ef-bdd7-78b3-0324-52add533a4a8",
 			"headers": "",
-			"url": "http://link.api.kinlane.com//link/{{link_id}}/screenshots/{link_screenshot_id}?appid={{appid}}&appkey={{appkey}}&",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "DELETE",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "delete a link screenshot",
-			"descriptionFormat": "html",
-			"time": 1435482439389,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "delete a link screenshot",
-			"owner": "27278",
-			"folder": "2a42cfb7-e817-4ad7-bb73-5df0ef9a30f1"
-		},
-		{
-			"id": "46e0f0b0-b878-4de9-bb81-63e90cc4e99a",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//link/{{link_id}}/screenshots/",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "appid",
-					"value": "{{appid}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "appkey",
-					"value": "{{appkey}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "path",
-					"value": "{{path}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "type",
-					"value": "{{type}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "name",
-					"value": "{{name}}",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "add screenshots for link",
-			"descriptionFormat": "html",
-			"time": 1435482439389,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "add screenshots to link",
-			"owner": "27278",
-			"folder": "2a42cfb7-e817-4ad7-bb73-5df0ef9a30f1"
-		},
-		{
-			"id": "696d46d4-d272-4485-9a75-beae2f37492e",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/?appid={{appid}}&appkey={{appkey}}&",
+			"url": "http://linkrot.api.kinlane.com//linkrot/shortenurls/?appid={{appid}}&appkey={{appkey}}&host={{host}}&",
 			"pathVariables": {},
 			"preRequestScript": "",
 			"method": "GET",
@@ -287,22 +79,20 @@
 				}
 			],
 			"dataMode": "params",
-			"description": "get link",
+			"description": "get links",
 			"descriptionFormat": "html",
-			"time": 1435482439390,
+			"time": 1437335422893,
 			"version": 2,
 			"responses": [],
 			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "get link",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
+			"collectionId": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"name": "get links",
+			"folder": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb"
 		},
 		{
-			"id": "9761ce9b-c769-4188-ac89-8b81377362d1",
+			"id": "cdc27cba-ac87-2e52-82b3-27a81e251ccf",
 			"headers": "",
-			"url": "http://link.api.kinlane.com//links/?appid={{appid}}&appkey={{appkey}}&query={{query}}&",
+			"url": "http://linkrot.api.kinlane.com//linkrot/?appid={{appid}}&appkey={{appkey}}&host={{host}}&",
 			"pathVariables": {},
 			"preRequestScript": "",
 			"method": "GET",
@@ -315,108 +105,20 @@
 				}
 			],
 			"dataMode": "params",
-			"description": "all links",
+			"description": "get links",
 			"descriptionFormat": "html",
-			"time": 1435482439385,
+			"time": 1437335422892,
 			"version": 2,
 			"responses": [],
 			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "all links",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
+			"collectionId": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"name": "get links",
+			"folder": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb"
 		},
 		{
-			"id": "a80705c6-5324-427a-9d9a-96cfa2b44258",
+			"id": "d6296f90-8acb-43eb-9729-3c4d20ac227f",
 			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/tags/{tag}?appid={{appid}}&appkey={{appkey}}&",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "DELETE",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "delete link tag",
-			"descriptionFormat": "html",
-			"time": 1435482439390,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "delete link tag",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
-		},
-		{
-			"id": "c2547109-b302-4a01-bbfb-65ccb83cc071",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "PUT",
-			"data": [
-				{
-					"key": "size",
-					"value": "original",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "appid",
-					"value": "{{appid}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "appkey",
-					"value": "{{appkey}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "name",
-					"value": "{{name}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "{{description}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "url",
-					"value": "{{url}}",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"description": "update link",
-			"descriptionFormat": "html",
-			"time": 1435482439390,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "update link",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
-		},
-		{
-			"id": "ccbc82e9-b39c-47fe-ab5f-1fb8c8df39dd",
-			"headers": "",
-			"url": "http://link.api.kinlane.com//links/{{link_id}}/tags/?appid={{appid}}&appkey={{appkey}}&",
+			"url": "http://linkrot.api.kinlane.com//linkrot/checkstatus/?appid={{appid}}&appkey={{appkey}}&host={{host}}&",
 			"pathVariables": {},
 			"preRequestScript": "",
 			"method": "GET",
@@ -429,17 +131,41 @@
 				}
 			],
 			"dataMode": "params",
-			"description": "link tags",
+			"description": "get links",
 			"descriptionFormat": "html",
-			"time": 1435482439390,
+			"time": 1437335422893,
 			"version": 2,
 			"responses": [],
 			"tests": "",
-			"collectionId": "666df2bc-d6b3-4f7b-bc60-4d954eb8f556",
-			"synced": false,
-			"name": "link tags",
-			"owner": "27278",
-			"folder": "6bae5984-da21-4a4c-8ee4-755a96cb3af1"
+			"collectionId": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"name": "get links",
+			"folder": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb"
+		},
+		{
+			"id": "ead7dfae-f15f-ee5b-8f81-31017be90199",
+			"headers": "",
+			"url": "http://linkrot.api.kinlane.com//linkrot/screencapture/?appid={{appid}}&appkey={{appkey}}&host={{host}}&",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"description": "get links",
+			"descriptionFormat": "html",
+			"time": 1437335422893,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "9433a5a2-a061-9d3f-f731-c85036611aca",
+			"name": "get links",
+			"folder": "a7d55bf6-f5e0-ff8c-59cc-a3f6d06829cb"
 		}
 	]
 }
