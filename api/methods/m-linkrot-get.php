@@ -9,15 +9,15 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 	if(isset($_POST['host'])){ $Host = $_POST['host']; } else { $Host = ""; }
 
 	$CheckDomainQuery = "SELECT * FROM sites WHERE Host = '" . $Host . "'";
-	echo $CheckDomainQuery;
+	//echo $CheckDomainQuery;
 	$CheckDomainResult = mysql_query($CheckDomainQuery) or die('Query failed: ' . mysql_error());
 	if($CheckDomainResult && mysql_num_rows($CheckDomainResult))
 		{
 		$Site = mysql_fetch_assoc($CheckDomainResult);
 		$HostTable = $Site['HostTable'];
 
-		$GetURLQuery = "SELECT * FROM " . $HostTable . " ORDER BY ID";
-		echo $GetURLQuery;
+		$GetURLQuery = "SELECT * FROM " . $HostTable . " ORDER BY ID LIMIT 100";
+		//echo $GetURLQuery;
 		$GetURLResult = mysql_query($GetURLQuery) or die('Query failed: ' . mysql_error());
 		if($GetURLResult && mysql_num_rows($GetURLResult))
 			{
