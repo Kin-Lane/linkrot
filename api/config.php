@@ -29,4 +29,3 @@ $API = "api.laneworks.net";
 $APISecret = "I like beer!";
 $APIKey = encrypt($API,$APISecret);
 ?>
-
