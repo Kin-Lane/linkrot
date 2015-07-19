@@ -56,6 +56,14 @@
         },
         "tags": [
           "Linkrot"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -100,6 +108,14 @@
         },
         "tags": [
           "Linkrot"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -144,6 +160,14 @@
         },
         "tags": [
           "Linkrot"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -188,6 +212,14 @@
         },
         "tags": [
           "Linkrot"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -232,8 +264,28 @@
         },
         "tags": [
           "Linkrot"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "appid": {
+      "type": "apiKey",
+      "name": "appid",
+      "in": "query"
+    },
+    "appkey": {
+      "type": "apiKey",
+      "name": "appkey",
+      "in": "query"
     }
   },
   "definitions": {
