@@ -1,5 +1,5 @@
 <?php
-$route = '/linkrot/shortenurls';
+$route = '/linkrot/shortenurls/';
 $app->get($route, function () use ($app,$three_scale_provider_key,$appid,$appkey){
 
 	$ReturnObject = array();
