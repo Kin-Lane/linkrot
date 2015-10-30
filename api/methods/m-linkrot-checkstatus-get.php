@@ -17,7 +17,7 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 		$Site = mysql_fetch_assoc($CheckDomainResult);
 		$HostTable = $Site['HostTable'];
 
-		$GetURLQuery = "SELECT * FROM " . $HostTable . " WHERE Status = 0 ORDER BY ID LIMIT 5";
+		$GetURLQuery = "SELECT * FROM " . $HostTable . " WHERE Status = 0 ORDER BY ID LIMIT 1";
 		//echo $GetURLQuery . "<br />";
 		$GetURLResult = mysql_query($GetURLQuery) or die('Query failed: ' . mysql_error());
 		if($GetURLResult && mysql_num_rows($GetURLResult))
