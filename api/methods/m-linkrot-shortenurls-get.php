@@ -17,7 +17,7 @@ $app->get($route, function () use ($app,$three_scale_provider_key,$appid,$appkey
 		$Site = mysql_fetch_assoc($CheckDomainResult);
 		$HostTable = $Site['HostTable'];
 
-		$GetURLQuery = "SELECT * FROM " . $HostTable . " WHERE Short_URL = '' AND (Status = 200 OR Status = 0) ORDER BY ID DESC LIMIT 5";
+		$GetURLQuery = "SELECT * FROM " . $HostTable . " WHERE Short_URL = '' AND Status = 200 ORDER BY ID DESC LIMIT 5";
 		//echo $GetURLQuery . "<br />";
 		$GetURLResult = mysql_query($GetURLQuery) or die('Query failed: ' . mysql_error());
 		if($GetURLResult && mysql_num_rows($GetURLResult))

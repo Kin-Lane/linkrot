@@ -1,5 +1,5 @@
 <?php
-$route = '/linkrot/checkstatus';
+$route = '/linkrot/checkstatus/';
 $app->get($route, function () use ($app,$three_scale_provider_key){
 
 	$ReturnObject = array();
