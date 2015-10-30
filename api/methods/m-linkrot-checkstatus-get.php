@@ -66,7 +66,7 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 						$output = curl_exec($http);
 						$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 						$info = curl_getinfo($http);
-						echo "2) " . $http_status . "<br />";
+						//echo "2) " . $http_status . "<br />";
 
 						}
 
