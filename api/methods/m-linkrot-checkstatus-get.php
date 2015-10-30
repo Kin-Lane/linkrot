@@ -44,6 +44,8 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 					$http = curl_init();
 					curl_setopt($http, CURLOPT_URL, trim($URL));
 					curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+					curl_setopt($http, CURLOPT_CONNECTTIMEOUT ,0);
+					curl_setopt($http, CURLOPT_TIMEOUT, 400); //timeout in seconds
 					//curl_setopt($http,CURLOPT_USERAGENT,' Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36');
 					$output = curl_exec($http);
 					//echo $output . "<br />";
@@ -59,6 +61,8 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 						$http = curl_init();
 						curl_setopt($http, CURLOPT_URL, $Resolved_URL);
 						curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($http, CURLOPT_CONNECTTIMEOUT ,0);
+						curl_setopt($http, CURLOPT_TIMEOUT, 400); //timeout in seconds						
 						$output = curl_exec($http);
 						$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
 						$info = curl_getinfo($http);
