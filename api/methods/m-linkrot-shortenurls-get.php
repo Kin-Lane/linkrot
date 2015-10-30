@@ -1,6 +1,6 @@
 <?php
 $route = '/linkrot/shortenurls';
-$app->get($route, function () use ($app,$three_scale_provider_key){
+$app->get($route, function () use ($app,$three_scale_provider_key,$appid,$appkey){
 
 	$ReturnObject = array();
 
@@ -35,16 +35,72 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 					{
 					if($Resolved_URL!='')
 						{
+
+						$api_url = "http://api.apis.how/link/";
 						//echo "here: " . $Resolved_URL . "<br />";
-						$results = bitly_v3_shorten($Resolved_URL,'bit.ly');
-						if(isset($results['url']))
+						///	$results = bitly_v3_shorten($Resolved_URL,'bit.ly');
+
+						$url = '';
+						$fields = array(
+										'appid' => urlencode($appid),
+										'appkey' => urlencode($appkey),
+										'url' => urlencode($Resolved_URL)
+										);
+
+						foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+						rtrim($fields_string, '&');
+
+						$http = curl_init();
+
+						curl_setopt($http,CURLOPT_URL, $api_url);
+						curl_setopt($http,CURLOPT_POST, count($fields));
+						curl_setopt($http,CURLOPT_POSTFIELDS, $fields_string);
+
+						$output = curl_exec($http);
+						$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+						$info = curl_getinfo($http);
+
+						//var_dump($info);
+						$results = $output;
+
+						curl_close($ch);
+
+						if(isset($results['short_url']))
 							{
-							$Short_URL = $results['url'];
+							$Short_URL = $results['short_url'];
 							}
 						}
 					else
 						{
-						$results = bitly_v3_shorten($URL,'bit.ly');
+						$api_url = "http://api.apis.how/link/";
+						//echo "here: " . $Resolved_URL . "<br />";
+						///	$results = bitly_v3_shorten($Resolved_URL,'bit.ly');
+
+						$url = '';
+						$fields = array(
+										'appid' => urlencode($appid),
+										'appkey' => urlencode($appkey),
+										'url' => urlencode($Resolved_URL)
+										);
+
+						foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+						rtrim($fields_string, '&');
+
+						$http = curl_init();
+
+						curl_setopt($http,CURLOPT_URL, $api_url);
+						curl_setopt($http,CURLOPT_POST, count($fields));
+						curl_setopt($http,CURLOPT_POSTFIELDS, $fields_string);
+
+						$output = curl_exec($http);
+						$http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+						$info = curl_getinfo($http);
+
+						//var_dump($info);
+						$results = $output;
+
+						curl_close($ch);
+
 						if(isset($results['url']))
 							{
 							$Short_URL = $results['url'];
@@ -72,5 +128,5 @@ $app->get($route, function () use ($app,$three_scale_provider_key){
 	$app->response()->header("Content-Type", "application/json");
 	echo format_json(stripslashes(json_encode($ReturnObject)));
 
-	});	
+	});
 ?>
