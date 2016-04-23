@@ -1,4 +1,4 @@
-[{
+{
 	"name": "Kin Lane Linkrot API",
 	"description": "I use Linkrot to track the links I use in each blog post, and then track on the availability of that resource. I regularly check the availability of URLs that I link to, and take screenshots of the page. When it goes away, I try to show the screenshot, rather than linking to a dead page. This API is used to manage this part of my platform.",
 	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-broken-link.png",
@@ -6,7 +6,7 @@
 	"tags": ["Kin Lane Linkrot API"],
 	"created": "2016-04-04",
 	"modified": "2016-04-04",
-	"url": "https://kin-lane.github.io/linkrot/"
+	"url": "https://kin-lane.github.io/linkrot/apis.json",
 	"specificationVersion": "0.14",
 	"apis": [{
 		"name": "Kin Lane Linkrot API",
@@ -117,4 +117,4 @@
 		"x-twitter": "apievangelist",
 		"email": "info@apievangelist.com"
 	}]
-}]
+}
